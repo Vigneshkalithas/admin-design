@@ -1,8 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams} from "react-router-dom";
 
 function ViewUser() {
   let { userId } = useParams();
+  const [searchParams , setSearchparams] = useSearchParams();
 
   const tableData = [
     {

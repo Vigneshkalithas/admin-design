@@ -15,7 +15,7 @@ function Product() {
       id:2,
       image:
         "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
-      title: "MacBook",
+      title: "Mac Book Pro",
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     },
