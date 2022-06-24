@@ -7,6 +7,8 @@ import { Routes , Route } from 'react-router-dom';
 import Footer from "./Footer";
 import Create from "./Create";
 import Product from "./Product";
+import ViewUser from "./ViewUser";
+import ViewProduct from "./ViewProduct";
 
 
 function App() {
@@ -21,17 +23,19 @@ function App() {
               <Routes>
                 <Route path="/" element={<Dashboard/>}/>
                 <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="/products" element={<Product/>}/>
-
+                <Route path="/products" element={<Product/>}/>               
                 <Route path="/tables" element={<Table/>}/>
                 <Route path="/createusers" element={<Create/>} />
+                <Route path="/tables/users/:userId" element={<ViewUser/>}/>
+                <Route path="/products/:productId" element={<ViewProduct/>}/>
+
               </Routes>
               {/* <Dashboard/> */}
               {/* <Table/> */}
             </div>
 
           </div>
-          <Footer/>
+          {/* <Footer/> */}
         </div>
       </div>
     </div>
