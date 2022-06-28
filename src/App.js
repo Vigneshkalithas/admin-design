@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <div id="wrapper">
         <SideBar />
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
             <TopBar/>
             <div className="container-fluid">

@@ -13,21 +13,30 @@ function SideBar() {
     <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
   </a>
   {/* Divider */}
-  <hr className="sidebar-divider my-0" />
+
+  {/* <hr className="sidebar-divider my-0" /> */}
+
   {/* Nav Item - Dashboard */}
+
   <li className="nav-item active">
     <Link className="nav-link" to="/dashboard">
       <i className="fas fa-fw fa-tachometer-alt" />
       <span>Dashboard</span></Link>
   </li>
+  
   {/* Divider */}
+
   {/* <hr className="sidebar-divider" /> */}
+
   {/* Heading */}
-  {/* <div className="sidebar-heading">
+
+   {/* <div className="sidebar-heading"> 
     Interface
-  </div> */}
+  </div>  */}
+  
   {/* Nav Item - Pages Collapse Menu */}
-   {/* <li className="nav-item"> 
+
+    {/* <li className="nav-item"> 
     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
       <i className="fas fa-fw fa-cog" />
       <span>Components</span>
@@ -39,9 +48,11 @@ function SideBar() {
         <a className="collapse-item" href="cards.html">Cards</a>
       </div>
     </div>
-  </li> */}
+  </li>  */}
+
   {/* Nav Item - Utilities Collapse Menu */}
-  {/* <li className="nav-item">
+
+   {/* <li className="nav-item">
     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
       <i className="fas fa-fw fa-wrench" />
       <span>Utilities</span>
@@ -55,15 +66,20 @@ function SideBar() {
         <a className="collapse-item" href="utilities-other.html">Other</a>
       </div>
     </div>
-  </li> */}
+  </li>  */}
+
   {/* Divider */}
+
   {/* <hr className="sidebar-divider" /> */}
+
   {/* Heading */}
+
   {/* <div className="sidebar-heading">
     Addons
   </div> */}
   {/* Nav Item - Pages Collapse Menu */}
-  {/* <li className="nav-item">
+
+   {/* <li className="nav-item">
     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
       <i className="fas fa-fw fa-folder" />
       <span>Pages</span>
@@ -80,8 +96,10 @@ function SideBar() {
         <a className="collapse-item" href="blank.html">Blank Page</a>
       </div>
     </div>
-  </li> */}
+  </li>  */}
+
   {/* Nav Item - Charts */}
+
   <li className="nav-item">
     <Link className="nav-link" to="/products">
       <i className="fas fa-fw fa-chart-area" />
@@ -93,18 +111,23 @@ function SideBar() {
       <i className="fas fa-fw fa-table" />
       <span>Users</span></Link> {/* Tables */}
   </li>
+
   {/* Divider */}
+
   {/* <hr className="sidebar-divider d-none d-md-block" /> */}
+
   {/* Sidebar Toggler (Sidebar) */}
-  {/* <div className="text-center d-none d-md-inline">
+
+   {/* <div className="text-center d-none d-md-inline">
     <button className="rounded-circle border-0" id="sidebarToggle" />
-  </div> */}
+  </div>  */}
   {/* Sidebar Message */}
+
   {/* <div className="sidebar-card d-none d-lg-flex">
     <img className="sidebar-card-illustration mb-2" src="../public/assets/undraw_rocket.svg" alt="..." />
     <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
      <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a> 
-  </div> */}
+  </div>  */}
 </ul>
 
 </>
