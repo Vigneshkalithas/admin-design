@@ -9,6 +9,7 @@ import Create from "./Create";
 import Product from "./Product";
 import ViewUser from "./ViewUser";
 import ViewProduct from "./ViewProduct";
+import Edituser from "./Edituser";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/tables" element={<Table/>}/>
                 <Route path="/createusers" element={<Create/>} />
                 <Route path="/tables/users/:userId" element={<ViewUser/>}/>
+                <Route path="/tables/users/editusers/:userId" element={<Edituser/>}/>
                 <Route path="/products/:productId" element={<ViewProduct/>}/>
 
               </Routes>
