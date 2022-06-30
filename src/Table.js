@@ -1,56 +1,77 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React, { useState ,useEffect } from 'react';
+import { Link} from 'react-router-dom'
 
-function Table() {
-  const tableData = [
-    {
-      id:1,
-      name: 'Tiger Nixon',
-      position: 'System Architect',
-      office: 'Edinburgh',
-      age: '61',
-      date: '2011/04/25',
-      salary: '$320'
-    },
-    {
-      id:2,
-      name: 'Garrett Winters',
-      position: 'Accountant',
-      office: 'Tokyo',
-      age: '63',
-      date: '2011/07/25',
-      salary: '$170'
-    },
-    {
-      id:3,
-      name: 'Ashton Cox',
-      position: 'Junior Technical Author',
-      office: 'San Francisco',
-      age: '66',
-      date: '2009/01/12',
-      salary: '$86'
-    },
-    {
-      id:4,
-      name: 'Cedric Kelly',
-      position: 'Senior Javascript Developer',
-      office: 'Edinburgh',
-      age: '22',
-      date: '2012/03/29',
-      salary: '$433'
-    },
-    {
-      id:5,
-      name: 'Airi Satou',
-      position: 'Accountant',
-      office: 'Tokyo',
-      age: '33',
-      date: '2008/11/28',
-      salary: '$162'
-    },
+function Table(){
+  // const tableData = [
+  //   {
+  //     id:1,
+  //     name: 'Tiger Nixon',
+  //     position: 'System Architect',
+  //     office: 'Edinburgh',
+  //     age: '61',
+  //     date: '2011/04/25',
+  //     salary: '$320'
+  //   },
+  //   {
+  //     id:2,
+  //     name: 'Garrett Winters',
+  //     position: 'Accountant',
+  //     office: 'Tokyo',
+  //     age: '63',
+  //     date: '2011/07/25',
+  //     salary: '$170'
+  //   },
+  //   {
+  //     id:3,
+  //     name: 'Ashton Cox',
+  //     position: 'Junior Technical Author',
+  //     office: 'San Francisco',
+  //     age: '66',
+  //     date: '2009/01/12',
+  //     salary: '$86'
+  //   },
+  //   {
+  //     id:4,
+  //     name: 'Cedric Kelly',
+  //     position: 'Senior Javascript Developer',
+  //     office: 'Edinburgh',
+  //     age: '22',
+  //     date: '2012/03/29',
+  //     salary: '$433'
+  //   },
+  //   {
+  //     id:5,
+  //     name: 'Airi Satou',
+  //     position: 'Accountant',
+  //     office: 'Tokyo',
+  //     age: '33',
+  //     date: '2008/11/28',
+  //     salary: '$162'
+  //   },
 
 
-  ]
+  // ]
+  const [tableData , setTableData] = useState([])
+
+  useEffect(() => {
+    async function getData(){
+      try{
+        let fetchDatas = await fetch ("https://61f1b9df072f86001749f34c.mockapi.io/users");
+        let userData = await fetchDatas.json();
+        // console.log(userData)
+        setTableData(userData)
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
+    getData()
+  
+  }, [])
+  
+  
+ 
+  
   return (
     <>
       <div>
@@ -85,6 +106,7 @@ function Table() {
                   <th>Age</th>
                   <th>Start date</th>
                   <th>Salary</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
@@ -95,6 +117,7 @@ function Table() {
                   <th>Age</th>
                   <th>Start date</th>
                   <th>Salary</th>
+                  <th>Action</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -105,7 +128,7 @@ function Table() {
                     <td>{data.position}</td>
                     <td>{data.office}</td>
                     <td>{data.age}</td>
-                    <td>{data.date}</td>
+                    <td>{data.startdate}</td>
                     <td>{data.salary}</td>
                     <td>
 <Link to={`/tables/users/${data.id}`} className="btn btn-sm mr-2 btn-warning">View</Link>

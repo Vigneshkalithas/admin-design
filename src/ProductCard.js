@@ -10,7 +10,7 @@ export function ProductCard({ data }) {
                     <div className="card-flyer">
                         <div className="text-box">
                             <div className="image-box">
-                                <img src={data.image} alt />
+                                <img src={data.image} alt=""/>
                             </div>
                             <div className="text-container">
                                 <h6>{data.title}</h6>
