@@ -1,5 +1,6 @@
 import React, { useState ,useEffect } from 'react';
-import { Link} from 'react-router-dom'
+import { Link} from 'react-router-dom';
+import axios from 'axios';
 
 function Table(){
   // const tableData = [
@@ -79,21 +80,33 @@ function Table(){
   // ]
   const [tableData , setTableData] = useState([])
 
-  useEffect(() => {
-    async function getData(){
-      try{
-        let fetchDatas = await fetch ("https://61f1b9df072f86001749f34c.mockapi.io/users");
-        let userData = await fetchDatas.json();
-        // console.log(userData)
-        setTableData(userData)
-      }
-      catch(error){
-        console.log(error)
-      }
+  async function getData(){
+    try{
+      let fetchDatas = await fetch ("https://61f1b9df072f86001749f34c.mockapi.io/users");
+      let userData = await fetchDatas.json();
+      // console.log(userData)
+      setTableData(userData)
     }
+    catch(error){
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+   
     getData()
   
   }, [])
+
+ 
+let handleDelete = async (userId)=>{
+
+            let ask = window.confirm("Do you want to delete this user?")
+            if(ask){
+              await axios.delete(`https://61f1b9df072f86001749f34c.mockapi.io/users/${userId}`)
+              getData()
+            }
+            }
   
   
  
@@ -148,8 +161,8 @@ function Table(){
               </tfoot>
               <tbody>
                 {
-                  tableData.map((data)=>{
-                    return  <tr>
+                  tableData.map((data,index)=>{
+                    return  <tr key={index}>
                     <td>{data.name}</td>
                     <td>{data.position}</td>
                     <td>{data.office}</td>
@@ -159,7 +172,7 @@ function Table(){
                     <td>
 <Link to={`/tables/users/${data.id}`} className="btn btn-sm mr-2 btn-warning">View</Link>
 <Link to={`/tables/users/editusers/${data.id}`} className="btn btn-sm mr-2 btn-primary">Edit</Link>
-<button className="btn btn-sm mr-2 btn-danger">Delete</button>
+<button onClick={()=>handleDelete(data.id)} className="btn btn-sm mr-2 btn-danger">Delete</button>
                     </td>
                   </tr>
                   })

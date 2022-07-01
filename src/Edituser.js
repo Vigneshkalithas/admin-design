@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import {useFormik} from "formik";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 function Edituser() {
     let { userId } = useParams()
+    const navigate = useNavigate()
 
     let formik = useFormik({
 
@@ -44,43 +46,51 @@ function Edituser() {
    
         },
   
-      onSubmit : () => {
+      onSubmit : async (values) => {
         //  console.log(values);
-//         try{
-//           let data = await fetch ("https://61f1b9df072f86001749f34c.mockapi.io/users",
-//           {
-//             method:"POST",
-//             body:JSON.stringify(values),
-//             headers : {
-//                  "Content-type" : "application/json"
-//                  }
-//           }
-//           );
-//           alert("Data Stored")
-//         }
-//         catch(error){
-//   console.log(error)
-//         }
+    try{
+          let data = await fetch (`https://61f1b9df072f86001749f34c.mockapi.io/users/${userId}`,
+          {
+            method:"PUT",
+            body:JSON.stringify(values),
+            headers : {
+                 "Content-type" : "application/json"
+                 }
+          }
+          );
+          alert("Data Updated Successfully")
+          console.log(values)
+          // navigate("/tables")
+        // await axios.put(`https://61f1b9df072f86001749f34c.mockapi.io/users/${userId}`,values)
+        // alert("Data Edited Successfully")
+        navigate("/tables")
+        
+    }
+        catch(error){
+  console.log(error)
+        }
     
     },
        
   
     })
+    
+    async function getData(){
+      try{
+        let editDatas = await fetch (`https://61f1b9df072f86001749f34c.mockapi.io/users/${userId}`);
+        let userEditData = await editDatas.json();
+        // console.log(userData)
+        console.log(userId)
+        formik.setValues(userEditData)
+
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
 
     useEffect(() => {
-        async function getData(){
-          try{
-            let editDatas = await fetch (`https://61f1b9df072f86001749f34c.mockapi.io/users/${userId}`);
-            let userEditData = await editDatas.json();
-            // console.log(userData)
-            console.log(userId)
-            formik.setValues(userEditData)
-    
-          }
-          catch(error){
-            console.log(error)
-          }
-        }
+       
         getData()
       
       }, [])
