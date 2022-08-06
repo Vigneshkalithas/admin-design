@@ -1,90 +1,17 @@
 import React, { useState ,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link} from 'react-router-dom';
 import axios from 'axios';
 
 function Table(){
-  // const tableData = [
-  //   {
-  //     id:1,
-  //     name: 'Tiger Nixon',
-  //     position: 'System Architect',
-  //     office: 'Edinburgh',
-  //     age: '61',
-  //     date: '2011/04/25',
-  //     salary: '$320'
-  //   },
-  //   {
-  //     id:2,
-  //     name: 'Garrett Winters',
-  //     position: 'Accountant',
-  //     office: 'Tokyo',
-  //     age: '63',
-  //     date: '2011/07/25',
-  //     salary: '$170'
-  //   },
-  //   {
-  //     id:3,
-  //     name: 'Ashton Cox',
-  //     position: 'Junior Technical Author',
-  //     office: 'San Francisco',
-  //     age: '66',
-  //     date: '2009/01/12',
-  //     salary: '$86'
-  //   },  {
-  //     id:1,
-  //     name: 'Tiger Nixon',
-  //     position: 'System Architect',
-  //     office: 'Edinburgh',
-  //     age: '61',
-  //     date: '2011/04/25',
-  //     salary: '$320'
-  //   },
-  //   {
-  //     id:2,
-  //     name: 'Garrett Winters',
-  //     position: 'Accountant',
-  //     office: 'Tokyo',
-  //     age: '63',
-  //     date: '2011/07/25',
-  //     salary: '$170'
-  //   },
-  //   {
-  //     id:3,
-  //     name: 'Ashton Cox',
-  //     position: 'Junior Technical Author',
-  //     office: 'San Francisco',
-  //     age: '66',
-  //     date: '2009/01/12',
-  //     salary: '$86'
-  //   },
-  //   {
-  //     id:4,
-  //     name: 'Cedric Kelly',
-  //     position: 'Senior Javascript Developer',
-  //     office: 'Edinburgh',
-  //     age: '22',
-  //     date: '2012/03/29',
-  //     salary: '$433'
-  //   },
-  //   {
-  //     id:5,
-  //     name: 'Airi Satou',
-  //     position: 'Accountant',
-  //     office: 'Tokyo',
-  //     age: '33',
-  //     date: '2008/11/28',
-  //     salary: '$162'
-  //   },
-
-
-  // ]
+  const navigate = useNavigate();
+  
   const [tableData , setTableData] = useState([])
 
   async function getData(){
     try{
       let fetchDatas = await fetch ("https://61f1b9df072f86001749f34c.mockapi.io/users");
       let userData = await fetchDatas.json();
-      // console.log(userData)
       setTableData(userData)
     }
     catch(error){
@@ -118,9 +45,9 @@ let handleDelete = async (userId)=>{
         <p className="mb-4">
           DataTables is a third party plugin that is used to generate the demo
           table below. For more information about DataTables, please visit the{" "}
-          <Link  to="/createusers" >
+          <button className='btn btn-primary my-2' onClick={()=>navigate("/createusers")}>
             Generate Users
-          </Link>
+          </button>
         </p>
       </div>
       <div className="card shadow mb-4">
@@ -148,7 +75,7 @@ let handleDelete = async (userId)=>{
                   <th>Action</th>
                 </tr>
               </thead>
-              <tfoot>
+              {/* <tfoot>
                 <tr>
                   <th>Name</th>
                   <th>Position</th>
@@ -158,7 +85,7 @@ let handleDelete = async (userId)=>{
                   <th>Salary</th>
                   <th>Action</th>
                 </tr>
-              </tfoot>
+              </tfoot> */}
               <tbody>
                 {
                   tableData.map((data,index)=>{

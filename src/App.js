@@ -3,14 +3,15 @@ import Dashboard from "./Dashboard";
 import SideBar from "./SideBar";
 import Table from "./Table";
 import TopBar from "./TopBar";
-import { Routes , Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import Footer from "./Footer";
 import Create from "./Create";
 import Product from "./Product";
 import ViewUser from "./ViewUser";
 import ViewProduct from "./ViewProduct";
 import Edituser from "./Edituser";
-
+import Editdata from "./Editdata";
+import CreateProducts from "./CreateProducts";
 
 function App() {
   return (
@@ -19,25 +20,34 @@ function App() {
         <SideBar />
         <div id="content-wrapper" className="d-flex flex-column">
           <div id="content">
-            <TopBar/>
+            <TopBar />
             <div className="container-fluid">
               <Routes>
-                <Route path="/" element={<Dashboard/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="/products" element={<Product/>}/>               
-                <Route path="/tables" element={<Table/>}/>
-                <Route path="/createusers" element={<Create/>} />
-                <Route path="/tables/users/:userId" element={<ViewUser/>}/>
-                <Route path="/tables/users/editusers/:userId" element={<Edituser/>}/>
-                <Route path="/products/:productId" element={<ViewProduct/>}/>
-
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/products" element={<Product />} />
+                <Route path="/tables" element={<Table />} />
+                <Route path="/createusers" element={<Create />} />
+                <Route path="/tables/users/:userId" element={<ViewUser />} />
+                <Route
+                  path="/tables/users/editusers/:userId"
+                  element={<Edituser />}
+                />
+                <Route path="/products/:productId" element={<ViewProduct />} />
+                <Route
+                  path="/products/editdata/:productId"
+                  element={<Editdata />}
+                />
+                <Route
+                  path="/products/createproducts"
+                  element={<CreateProducts />}
+                />
               </Routes>
               {/* <Dashboard/> */}
               {/* <Table/> */}
             </div>
-
           </div>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
       </div>
     </div>
